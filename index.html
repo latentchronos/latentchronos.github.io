@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spacetime - Audio ML Engineer & Founder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 60px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            color: #666;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            color: #777;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 25px 0 15px;
+            color: #667eea;
+        }
+
+        .card p, .card li {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f8f9ff, #e8ebff);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .skill-category h4 {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .startup-highlight {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .startup-highlight h2 {
+            color: white;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .startup-highlight p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .feature h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+        }
+
+        .icon {
+            font-size: 1.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin-top: 30px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .hero {
+                padding: 40px 30px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .card {
+                padding: 30px;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="hero">
+            <h1>Spacetime</h1>
+            <p class="subtitle">Audio ML Engineer • Researcher • Musician • Founder</p>
+            <p class="description">
+                Bridging the gap between artificial intelligence and musical creativity, I specialize in audio machine learning, 
+                developing cutting-edge solutions that transform how we create, process, and experience sound. Currently building 
+                the future of AI-powered music technology through innovative research and entrepreneurship.
+            </p>
+            <div class="social-links">
+                <a href="https://github.com/latentchronos" target="_blank">
+                    <span class="icon">🔗</span> GitHub
+                </a>
+                <a href="mailto:your.latentchronos@gmail.com">
+                    <span class="icon">✉️</span> Mail
+                </a>
+                <a href="https://linkedin.com/in/godsvictory-ifeanyichukwu" target="_blank">
+                    <span class="icon">💼</span> LinkedIn
+                </a>
+                <a href="https://x.com/latentchronos" target="_blank">
+                  <span class="icon">🐦</span>
+                  
+                </a>
+            </div>
+        </section>
+
+        <div class="startup-highlight">
+            <h2>🚀 Alatau - AI Music Innovation</h2>
+            <p>
+                Founder of Alatau, an AI music startup creating tools that empower musicians, producers, and creators 
+                to shape sound in entirely new ways. We combine audio innovation and AI to unlock new creative 
+                possibilities helping artists move seamlessly from raw sound to polished music.
+            </p>
+            
+            <div class="features">
+                <div class="feature">
+                    <h3>🎹 Timbre-to-Synth Presets</h3>
+                    <p>Turn any sound into a customizable synth preset. Record, transform, and design your own signature tones to create instruments that are uniquely yours.</p>
+                </div>
+                <div class="feature">
+                    <h3>🎶 AI Harmony Generator</h3>
+                    <p>An intelligent audio processing pipeline that analyzes melody, timbre, and rhythm from recordings, then generates adaptive harmonies and arrangements tailored to your music.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <div class="card">
+                <h2><span class="icon">🤖</span> Expertise</h2>
+                <h3>Audio Machine Learning</h3>
+                <p>Specialized in developing AI systems for audio processing, synthesis, and analysis. Passionate about creating intelligent tools that understand and generate music with human-like creativity and precision.</p>
+                
+                <h3>Research & Development</h3>
+                <p>Currently working on breakthrough research in audio AI, with upcoming publications planned in the field of machine learning applied to music generation and audio synthesis.</p>
+                
+                <h3>Musical Foundation</h3>
+                <p>As a musician, I bring a unique perspective to AI development, understanding both the technical challenges and the creative needs of artists and producers.</p>
+            </div>
+
+            <div class="card">
+                <h2><span class="icon">⚡</span> Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Machine Learning</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Deep Learning</span>
+                            <span class="skill-tag">Neural Networks</span>
+                            <span class="skill-tag">Audio Processing</span>
+                            <span class="skill-tag">Signal Processing</span>
+                            <span class="skill-tag">Generative AI</span>
+                            <span class="skill-tag">Retrieval Augumented Generation</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Audio Technology</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Audio Synthesis</span>
+                            <span class="skill-tag">Music Information Retrieval</span>
+                            <span class="skill-tag">Digital Audio</span>
+                            <span class="skill-tag">Sound Design</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Programming</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">TensorFlow/PyTorch</span>
+                            <span class="skill-tag">Audio Libraries</span>
+                            <span class="skill-tag">Research Tools</span>
+                            <span class="skill-tag">C++
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Music Production</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Composition</span>
+                            <span class="skill-tag">Arrangement</span>
+                            <span class="skill-tag">Sound Engineering</span>
+                            <span class="skill-tag">Creative Direction</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="icon">🎯</span> Current Focus</h2>
+                <h3>Building Alatau</h3>
+                <p>Developing revolutionary AI music tools that bridge the gap between artificial intelligence and human creativity. Working on products that will transform how musicians create and interact with sound.</p>
+                
+                <h3>Research Pipeline</h3>
+                <p>Preparing groundbreaking research publications in audio machine learning, focusing on novel approaches to music generation, audio synthesis, and intelligent music production systems.</p>
+                
+                <h3>Industry Impact</h3>
+                <p>Creating solutions that will redefine the music technology landscape, making advanced AI accessible to creators of all levels while maintaining the human element in musical expression.</p>
+            </div>
+
+            <div class="card">
+                <h2><span class="icon">🌟</span> Vision</h2>
+                <p>
+                    I envision a future where AI and human creativity work in perfect harmony, where technology amplifies 
+                    artistic expression rather than replacing it. Through Alatau and my research, I'm working to create 
+                    tools that understand the nuances of music and help artists explore new sonic territories they never 
+                    thought possible.
+                </p>
+                <p>
+                    My goal is to democratize advanced music technology, making sophisticated AI tools accessible to 
+                    bedroom producers and Grammy-winning artists alike, while pushing the boundaries of what's possible 
+                    in audio machine learning.
+                </p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Spacetime | Building the future of AI-powered music technology</p>
+            <p>Open to collaborations, research partnerships, and innovative projects</p>
+        </footer>
+    </div>
+</body>
+</html>
